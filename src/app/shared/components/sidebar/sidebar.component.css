@@ -1,0 +1,8 @@
+/* Sidebar recolhido: esconder texto, alinhar ícones */
+:host ::ng-deep aside.w-16 span {
+  display: none;
+}
+:host ::ng-deep aside.w-16 a {
+  justify-content: center;
+}
+
