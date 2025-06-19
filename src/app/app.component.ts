@@ -16,11 +16,18 @@ export class AppComponent implements OnInit {
   title = 'dashboard';
   isSidebarOpen = true;
 
-  ngOnInit(): void{
+  ngOnInit(): void {
+    // Recupera o estado salvo do sidebar, se existir
+    const savedSidebarState = localStorage.getItem('isSidebarOpen');
+    if (savedSidebarState !== null) {
+      this.isSidebarOpen = savedSidebarState === 'true';
+    }
     initFlowbite();
   }
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
+    // Salva o estado atual do sidebar
+    localStorage.setItem('isSidebarOpen', String(this.isSidebarOpen));
   }
 }
